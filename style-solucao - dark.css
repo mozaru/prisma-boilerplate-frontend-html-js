@@ -1,84 +1,4 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -87,72 +7,76 @@ video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display: block;
 }
 
 :root {
-  --fundo-primario: #333;
-  --fundo-fullscreen: #333;
-  --fundo-dialog: #333;
+  --background: #333;
+  --color: rgb(250, 251, 172);
 
-  --texto-primario: rgb(250, 251, 172);
+  --background-fullscreen: #333;
 
-  --fundo-btn-default: #333;
-  --borda-btn-default: rgb(255, 251, 1);
-  --texto-btn-default: rgb(231, 216, 13);
+  --background-dialog: #333;
+  --border-dialog: rgb(199, 196, 149);
 
-  --fundo-btn: #333;
-  --borda-btn: rgb(187, 175, 7);
-  --texto-btn: rgb(187, 175, 7);
+  --background-btn: #333;
+  --border-btn: rgb(187, 175, 7);
+  --text-btn: rgb(187, 175, 7);
+ 
+  --background-btn-hover: rgb(255, 251, 1);
+  --text-btn-hover: rgb(75, 70, 7);
 
-  --fundo-tool-btn: #afaf60;
-  --borda-tool-btn: rgb(187, 175, 7);
-  --texto-tool-btn: rgb(187, 175, 7);
+  --background-btn-default: #333;
+  --border-btn-default: rgb(255, 251, 1);
+  --text-btn-default: rgb(231, 216, 13);
 
-  --fundo-btn-hover: rgb(255, 251, 1);
-  --texto-btn-hover: rgb(75, 70, 7);
+  --background-tool-btn: #afaf60;
+  --border-tool-btn: rgb(187, 175, 7);
+  --text-tool-btn: rgb(187, 175, 7);
+
+  --background-input: #444444;
+  --border-input: rgb(187, 175, 7);
+  --text-input: rgb(250, 251, 172);
+  --text-value: #0a0095;
+  --shadow:rgba(231, 235, 13, 0.534);
 
   --destacar: #ffffff10;
+  --anchor: #7c77b9;
+  --anchor-hover: #645be6;
 
-  --fundo-tabela: #333333;
-  --fundo-tabela-impar: #444444;
-  --fundo-tabela-hover: #555555;
+  --background-table: #333333;
 
-  --fundo-input: #444444;
-  --texto-input: rgb(250, 251, 172);
+  --background-table-header: #b3b47a;
+  --text-table-header: #FFFFFF;
+  --background-table-header-hover: #858a3f;
+  --text-table-header-hover: #FFFFFF;
 
+  --background-table-odd: #444444;
+  --text-table-odd: rgb(233, 223, 80);
+  --background-table-even: #555454;
+  --text-table-even: rgb(233, 223, 80);
+  --background-table-hover: #858a3f;
+  --text-table-hover: #FFFFFF;
+  
   --icon-remove: #8f0000;
   --icon-edit: #333333;
+
 }
 
 body {
-  color: var(--texto-primario);
   line-height: 1;
-  background-color: var(--fundo-primario);
+  background-color: var(--background);
+  padding: 20px;
+  color: var(--color);
 }
-ol,
-ul {
+ol,ul {
   list-style: none;
 }
-blockquote,
-q {
+blockquote,q {
   quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before,blockquote:after,q:before,q:after {
   content: "";
   content: none;
 }
@@ -171,10 +95,10 @@ body {
 .dialog {
   margin: auto;
   margin-top: 50px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-dialog);
   max-width: 460px;
   border-radius: 5px;
-  background-color: var(--fundo-dialog);
+  background-color: var(--background-dialog);
 }
 
 .dialog h1 {
@@ -184,12 +108,12 @@ body {
 .fullscreen {
   margin: auto;
   margin-top: 5px;
-  background-color: var(--fundo-fullscreen);
+  background-color: var(--background-fullscreen);
 }
 
 h1 {
   margin: 5px;
-  padding: 0px;
+  padding: 0px 20px;
   font-size: 20px;
   text-align: left;
   font-weight: bold;
@@ -197,7 +121,6 @@ h1 {
 
 fieldset {
   box-sizing: border-box;
-  color: var(--texto-primario);
   padding: 20px;
 }
 
@@ -211,8 +134,7 @@ fieldset legend {
 
 fieldset label {
   display: block;
-  padding: 0px;
-  margin: 10px 0px;
+  padding: 10px 0px 0px 0px;
   box-sizing: border-box;
   transition: all 0.2s linear;
 }
@@ -243,14 +165,15 @@ fieldset label {
   padding: 10p;
   tab-size: 4;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--background-input);
+  color: var(--text-input);
   width: 100%;
   height: 100%;
   border: 0px;
   overflow: scroll;
 }
 .codejar-linenumbers {
-  color: #000;
+  color: var(--text-input);
   mix-blend-mode: normal !important;
 }
 .codejar-wrap {
@@ -278,7 +201,7 @@ div.label {
 
 .label-value {
   padding-left: 5px;
-  color: var(--texto-primario);
+  color: var(--text-value);
 }
 
 .source,
@@ -310,12 +233,12 @@ div.label {
 
 a {
   text-decoration-line: none;
-  color: var(--texto-primario);
+  color: var(--anchor);
   transition: all 0.2s linear;
 }
 
 a:hover {
-  color: var(--texto-primario);
+  color: var(--anchor-hover);
 }
 
 a[href="tela-esqueci-senha.html"] label {
@@ -335,19 +258,19 @@ fieldset input {
   margin: 10px 0px 20px 0px;
   box-sizing: border-box;
   border-radius: 5px;
-  border: solid 1.5px #d3d3d3;
+  border: solid 1.5px var(--border-input);
   transition: all 0.2s linear;
 }
 
 input {
-  color: var(--texto-input);
-  background-color: var(--fundo-input);
+  color: var(--text-input);
+  background-color: var(--background-input);
 }
 
 input:focus,
 .btn:focus,
 a:focus label {
-  box-shadow: 0px 0px 5px 3px rgba(255, 251, 1, 0.746);
+  box-shadow: 0px 0px 5px 2px var(--shadow);
   outline-width: 0px;
 }
 a:focus {
@@ -355,25 +278,25 @@ a:focus {
 }
 
 .btn {
-  color: var(--texto-btn);
+  color: var(--text-btn);
   width: 8em;
   padding: 10px;
-  border: 2px solid var(--borda-btn);
-  background-color: var(--fundo-btn);
+  border: 2px solid var(--border-btn);
+  background-color: var(--background-btn);
   transition: all 0.2s linear;
   border-radius: 5px;
 }
 
 .btn:hover {
-  color: var(--texto-btn-hover);
-  background-color: var(--fundo-btn-hover);
+  color: var(--text-btn-hover);
+  background-color: var(--background-btn-hover);
   cursor: pointer;
 }
 
 .btnDefault {
-  border: 2px solid var(--borda-btn-default);
-  color: var(--texto-btn-default);
-  background-color: var(--fundo-btn-default);
+  color: var(--text-btn-default);
+  border: 2px solid var(--border-btn-default);
+  background-color: var(--background-btn-default);
 }
 
 .btnCancel,
@@ -403,34 +326,37 @@ select {
 }
 
 table {
+  margin-top: 40px;
   border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgba(255, 255, 1, 0.239),
     0 1px 5px 0 rgba(255, 255, 1, 0.349),
     0 3px 1px -2px rgba(255, 255, 1, 0.445);
-  background-color: var(--btn-background);
+  background-color: var(--background-table);
   width: 100%;
   height: 100%;
 }
 
 thead td {
-  color: var(--texto-primario);
-  background-color: var(--destacar);
+  color: var(--text-table-header);
+  background: var(--background-table-header);
   font-weight: bold;
-  padding: 12px;
+  padding: 15px;
   text-align: left;
 }
 
 thead td:hover {
-  background-color: var(--destacar);
+  color: var(--text-table-header-hover);
+  background-color: var(--background-table-header-hover);
   cursor: pointer;
 }
 
 tbody td {
-  padding: 2px;
+  padding: 2px 15px;
 }
 
 tbody {
-  background-color: var(--fundo-tabela);
+  background-color: var(--background-table-odd);
+  color: var(--text-table-odd);
   overflow: auto;
   height: 80%;
   width: 100%;
@@ -441,11 +367,13 @@ thead {
 }
 
 tr:nth-child(even) {
-  background-color: var(--fundo-tabela-impar);
+  background-color: var(--background-table-even);
+  color: var(--text-table-even);
 }
 
 tr:hover {
-  background-color: var(--fundo-tabela-hover);
+  background-color: var(--background-table-hover);
+  color: var(--text-table-hover);
 }
 
 .tool-btn {
@@ -454,10 +382,10 @@ tr:hover {
   height: 40px;
   padding: 2px;
   margin-bottom: 2px;
-  border: 1px solid var(--borda-tool-btn);
+  border: 1px solid var(--border-tool-btn);
   transition: all 0.2s linear;
   border-radius: 5px;
-  background-color: var(--fundo-tool-btn);
+  background-color: var(--background-tool-btn);
   opacity: 0.7;
 }
 
@@ -494,20 +422,43 @@ td:nth-last-child(2) {
 
 .HeaderTable {
   width: 100%;
-  height: 50px;
+  height: 35px;
+  margin: 20px 0px 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.Filter {
+.prisma-filter {
   display: inline-block;
-  width: auto;
 }
-.Filter input,
-.Filter button,
-.Filter label,
+.prisma-filter > button,
+.prisma-filter input {
+  margin: 0;
+}
+.prisma-filter label {
+  padding-left: 0;
+}
+.prisma-filter input,
+.prisma-filter button,
+.prisma-filter label,
 .HeaderTable Button {
   display: inline-block;
 }
-.Filter input {
+
+.HeaderTable button {
+  padding: 5px;
+}
+
+.prisma-filter input {
   display: inline-block;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+}
+
+.prisma-filter > button {
+  margin-left: -6px;
+  border-radius: 0 5px 5px 0;
+  border-width: 1.5px;
+  padding: 5px 15px 5px 15px;
   width: auto;
 }

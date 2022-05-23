@@ -1,84 +1,4 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -87,36 +7,76 @@ video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   display: block;
 }
+
+:root {
+  --background: rgb(252, 253, 241);
+  --color: #555;
+
+  --background-fullscreen: rgb(252, 253, 241);
+
+  --background-dialog: rgb(250, 255, 250);
+  --border-dialog:  #ccc;
+
+  --background-btn: #e1fadb;
+  --border-btn: #1db310;
+  --text-btn: #777;
+ 
+  --background-btn-hover: #0b8a00;
+  --text-btn-hover: #eee;
+
+  --background-btn-default: #1db310;
+  --border-btn-default: #1db310;
+  --text-btn-default: #eee;
+
+  --background-tool-btn: #ffffffe0;
+  --border-tool-btn: #1db310;
+  --text-tool-btn: #eee;
+
+  --background-input: #fff;
+  --border-input: #d3d3d3;
+  --text-input: #000;
+  --text-value: #645be6;
+  --shadow:rgba(57, 235, 13, 0.534);
+
+  --destacar: #ffffff10;
+  --anchor: #7c77b9;
+  --anchor-hover: #645be6;
+
+  --background-table: #86b47a;
+
+  --background-table-header: #86b47a;
+  --text-table-header: white;
+  --background-table-header-hover: #488a3f;
+  --text-table-header-hover:  white;
+
+  --background-table-odd: white;
+  --text-table-odd: #555;
+  --background-table-even: #e1fadb;
+  --text-table-even: #555;
+  --background-table-hover: #488a3f;
+  --text-table-hover: white;
+  
+  --icon-remove: #8f0000;
+  --icon-edit: #333333;
+
+}
+
 body {
   line-height: 1;
-  background-color: rgb(252, 253, 241);
+  background-color: var(--background);
   padding: 20px;
+  color: var(--color);
 }
-ol,
-ul {
+ol,ul {
   list-style: none;
 }
-blockquote,
-q {
+blockquote,q {
   quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before,blockquote:after,q:before,q:after {
   content: "";
   content: none;
 }
@@ -135,10 +95,10 @@ body {
 .dialog {
   margin: auto;
   margin-top: 50px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-dialog);
   max-width: 460px;
   border-radius: 5px;
-  background-color: rgb(252, 253, 241);
+  background-color: var(--background-dialog);
 }
 
 .dialog h1 {
@@ -148,7 +108,7 @@ body {
 .fullscreen {
   margin: auto;
   margin-top: 5px;
-  background-color: rgb(252, 253, 241);
+  background-color: var(--background-fullscreen);
 }
 
 h1 {
@@ -161,7 +121,6 @@ h1 {
 
 fieldset {
   box-sizing: border-box;
-  color: #555;
   padding: 20px;
 }
 
@@ -204,14 +163,15 @@ fieldset label {
   padding: 10p;
   tab-size: 4;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--background-input);
+  color: var(--text-input);
   width: 100%;
   height: 100%;
   border: 0px;
   overflow: scroll;
 }
 .codejar-linenumbers {
-  color: #000;
+  color: var(--text-input);
   mix-blend-mode: normal !important;
 }
 .codejar-wrap {
@@ -239,7 +199,7 @@ div.label {
 
 .label-value {
   padding-left: 5px;
-  color: #645be6;
+  color: var(--text-value);
 }
 
 .source,
@@ -271,12 +231,12 @@ div.label {
 
 a {
   text-decoration-line: none;
-  color: #7c77b9;
+  color: var(--anchor);
   transition: all 0.2s linear;
 }
 
 a:hover {
-  color: #645be6;
+  color: var(--anchor-hover);
 }
 
 a[href="tela-esqueci-senha.html"] label {
@@ -296,14 +256,19 @@ fieldset input {
   margin: 10px 0px 20px 0px;
   box-sizing: border-box;
   border-radius: 5px;
-  border: solid 1.5px #d3d3d3;
+  border: solid 1.5px var(--border-input);
   transition: all 0.2s linear;
+}
+
+input {
+  color: var(--text-input);
+  background-color: var(--background-input);
 }
 
 input:focus,
 .btn:focus,
 a:focus label {
-  box-shadow: 0px 0px 5px 2px rgba(57, 235, 13, 0.534);
+  box-shadow: 0px 0px 5px 2px var(--shadow);
   outline-width: 0px;
 }
 a:focus {
@@ -311,24 +276,25 @@ a:focus {
 }
 
 .btn {
-  color: #777;
+  color: var(--text-btn);
   width: 8em;
   padding: 10px;
-  border: 2px solid #1db310;
-  background-color: #e1fadb;
+  border: 2px solid var(--border-btn);
+  background-color: var(--background-btn);
   transition: all 0.2s linear;
   border-radius: 5px;
 }
 
 .btn:hover {
-  color: #eee;
-  background-color: #0b8a00;
+  color: var(--text-btn-hover);
+  background-color: var(--background-btn-hover);
   cursor: pointer;
 }
 
 .btnDefault {
-  color: #eee;
-  background-color: #1db310;
+  color: var(--text-btn-default);
+  border: 2px solid var(--border-btn-default);
+  background-color: var(--background-btn-default);
 }
 
 .btnCancel,
@@ -362,20 +328,22 @@ table {
   border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  background-color: #86b47a;
+  background-color: var(--background-table);
   width: 100%;
   height: 100%;
 }
 
 thead td {
-  color: white;
+  color: var(--text-table-header);
+  background: var(--background-table-header);
   font-weight: bold;
   padding: 15px;
   text-align: left;
 }
 
 thead td:hover {
-  background-color: #488a3f;
+  color: var(--text-table-header-hover);
+  background-color: var(--background-table-header-hover);
   cursor: pointer;
 }
 
@@ -384,7 +352,8 @@ tbody td {
 }
 
 tbody {
-  background-color: white;
+  background-color: var(--background-table-odd);
+  color: var(--text-table-odd);
   overflow: auto;
   height: 80%;
   width: 100%;
@@ -395,24 +364,25 @@ thead {
 }
 
 tr:nth-child(even) {
-  background-color: #e1fadb;
+  background-color: var(--background-table-even);
+  color: var(--text-table-even);
 }
 
 tr:hover {
-  background-color: #488a3f;
-  color: white;
+  background-color: var(--background-table-hover);
+  color: var(--text-table-hover);
 }
 
 .tool-btn {
-  color: #eee;
+  color: var(--text-tool-btn);
   width: 40px;
   height: 40px;
   padding: 2px;
   margin-bottom: 2px;
-  border: 1px solid #1db310;
+  border: 1px solid var(--border-tool-btn);
   transition: all 0.2s linear;
   border-radius: 5px;
-  background-color: #ffffffe0;
+  background-color: var(--background-tool-btn);
   opacity: 0.7;
 }
 
@@ -455,19 +425,20 @@ td:nth-last-child(2) {
   justify-content: space-between;
 }
 
-.Filter {
+.prisma-filter {
   display: inline-block;
 }
-.Filter > button,
-.Filter input {
+
+.prisma-filter > button,
+.prisma-filter input {
   margin: 0;
 }
-.Filter label {
+.prisma-filter label {
   padding-left: 0;
 }
-.Filter input,
-.Filter button,
-.Filter label,
+.prisma-filter input,
+.prisma-filter button,
+.prisma-filter label,
 .HeaderTable Button {
   display: inline-block;
 }
@@ -476,13 +447,13 @@ td:nth-last-child(2) {
   padding: 5px;
 }
 
-.Filter input {
+.prisma-filter input {
   display: inline-block;
   border-radius: 5px 0 0 5px;
   width: 300px;
 }
 
-.Filter > button {
+.prisma-filter > button {
   margin-left: -6px;
   border-radius: 0 5px 5px 0;
   border-width: 1.5px;
