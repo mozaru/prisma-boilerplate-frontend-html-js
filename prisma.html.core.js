@@ -26,6 +26,31 @@ prism.progressBar = function (objName, totalTime, callBackFinish) {
   }
 };
 
+prism.onChangeFileImage = function(file,image){
+	const fileElement = document.getElementById(file);
+	const imageElement = document.getElementById(image);
+	const [selectedFile] = fileElement.files;
+  if (selectedFile)
+  {
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(selectedFile);
+    reader.onloadend = function() {
+      const imgBase64 = btoa(String.fromCharCode.apply(null, new Uint8Array(reader.result)));
+      imageElement.src = `data:image/png;base64, ${imgBase64}`;
+    };
+  }
+}
+
+prism.getImageValueInBase64 = function(image)
+{
+  const imageElement = document.getElementById(image);
+  const pos = imageElement.src.indexOf('base64');
+  if (pos>-1)
+    return imageElement.src.substr(pos+8);
+  else
+    return '';
+}
+
 prism.RestApi = function (baseUrl) {
   this.baseUrl = baseUrl;
   this.request = function (method, url, body, success, error) {
@@ -33,10 +58,12 @@ prism.RestApi = function (baseUrl) {
     xhttp.onreadystatechange = function () {
       try {
         if (this.readyState == 4) {
-          resp = JSON.parse(xhttp.response);
-          if (!resp) resp = xhttp.response;
-          if (this.status == 200) success(resp);
-          else error(resp, this.status);
+          if (this.status == 200){
+            resp = JSON.parse(xhttp.response);
+            if (!resp) resp = xhttp.response;
+            success(resp);
+          }
+          else error(xhttp.response, this.status);
         }
       } catch (err) {
         error(err.message, 0);
@@ -164,7 +191,7 @@ prism.Table = function (table, columns, operations) {
       cell.appendChild(btn);
     }
     row.style = this.passFilter(row.obj)
-      ? "display:table-row;"
+      ? "display:;"
       : "display:none;";
   };
   this.passFilter = function (obj) {
@@ -178,7 +205,7 @@ prism.Table = function (table, columns, operations) {
     this.filterContent = filterContent.toLowerCase();
     for (let row of this.tbody.children)
       row.style = this.passFilter(row.obj)
-        ? "display:table-row;"
+        ? "display:;"
         : "display:none;";
   };
   function sortByKeyAsc(array, key) {

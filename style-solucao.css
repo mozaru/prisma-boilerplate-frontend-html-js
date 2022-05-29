@@ -27,9 +27,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
   --background-btn-hover: #0b8a00;
   --text-btn-hover: #eee;
 
-  --background-btn-default: #1db310;
-  --border-btn-default: #1db310;
+  --background-btn-default: #0b8a00;
+  --border-btn-default: #eee;
   --text-btn-default: #eee;
+
+  --background-btn-default-hover: #6b81aa;
+  --text-btn-default-hover: #eee;
 
   --background-tool-btn: #ffffffe0;
   --border-tool-btn: #1db310;
@@ -249,7 +252,7 @@ a[href="tela-esqueci-senha.html"] label {
   transition: all 0.2s linear;
 }
 
-fieldset input {
+fieldset input, fieldset textarea{
   display: block;
   width: 100%;
   padding: 5px;
@@ -258,19 +261,23 @@ fieldset input {
   border-radius: 5px;
   border: solid 1.5px var(--border-input);
   transition: all 0.2s linear;
+  resize: none;
 }
 
-input {
+input, textarea {
   color: var(--text-input);
   background-color: var(--background-input);
 }
 
-input:focus,
-.btn:focus,
-a:focus label {
+input:focus, .btn:focus, input:focus + .btn, a:focus label {
   box-shadow: 0px 0px 5px 2px var(--shadow);
   outline-width: 0px;
 }
+
+.prisma-field img{
+  width:100%;
+}
+
 a:focus {
   outline-width: 0px;
 }
@@ -297,6 +304,12 @@ a:focus {
   background-color: var(--background-btn-default);
 }
 
+.btnDefault:hover {
+  color: var(--text-btn-default-hover);
+  background-color: var(--background-btn-default-hover);
+  cursor: pointer;
+}
+
 .btnCancel,
 .col-remove {
 }
@@ -317,20 +330,31 @@ select {
   margin-bottom: 20px;
 }
 
-.div-table {
+.prisma-div-table {
   display: block;
-  height: 200px;
-  width: 100%;
+  height: calc( 100vh - 19em );
+  width:calc( 100vw - 6em );
+  overflow-y: scroll;
+  padding: 0px;
+  margin:0px;
+  margin-top: 40px;
 }
 
 table {
-  margin-top: 40px;
   border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0, 0, 0, 0.2);
   background-color: var(--background-table);
   width: 100%;
-  height: 100%;
+}
+
+table tbody {
+  overflow-y: scroll;
+}
+
+
+table thead tr,
+table tbody tr {
 }
 
 thead td {
@@ -339,7 +363,7 @@ thead td {
   font-weight: bold;
   padding: 15px;
   text-align: left;
-}
+}  
 
 thead td:hover {
   color: var(--text-table-header-hover);
@@ -347,20 +371,17 @@ thead td:hover {
   cursor: pointer;
 }
 
-tbody td {
+table tbody tr {
+  width: 100%;
+}
+
+table tbody td {
   padding: 2px 15px;
 }
 
 tbody {
   background-color: var(--background-table-odd);
-  color: var(--text-table-odd);
-  overflow: auto;
-  height: 80%;
-  width: 100%;
-}
-
-thead {
-  width: 100%;
+  color: var(--text-table-odd); 
 }
 
 tr:nth-child(even) {
@@ -371,6 +392,32 @@ tr:nth-child(even) {
 tr:hover {
   background-color: var(--background-table-hover);
   color: var(--text-table-hover);
+}
+
+
+/*td:nth-last-child(1),
+td:nth-last-child(2),
+td:nth-last-child(3),
+td:nth-last-child(4) {
+  padding: 2px 0px;
+  margin: 0px 5px;
+}
+*/
+td:nth-last-child(1),
+td:nth-last-child(2)
+{
+  padding: 2px 0px;
+  margin: 0px 5px;
+  width:55px;
+  min-width:55px;
+}
+
+.HeaderTable {
+  width: 100%;
+  height: 35px;
+  margin: 20px 0px 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .tool-btn {
@@ -410,19 +457,34 @@ tr:hover {
   width: 20px;
 }
 
-td:nth-last-child(1),
-td:nth-last-child(2) {
-  padding-right: 5px;
-  margin: 0;
-  width: 25px;
+.col-reviews:before {
+  content: "";
+  visibility: visible;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="%23404040" d="M4,2A2,2 0 0,0 2,4V14H4V4H14V2H4M8,6A2,2 0 0,0 6,8V18H8V8H18V6H8M20,12V20H12V12H20M20,10H12A2,2 0 0,0 10,12V20A2,2 0 0,0 12,22H20A2,2 0 0,0 22,20V12A2,2 0 0,0 20,10M19,17H17V19H15V17H13V15H15V13H17V15H19V17Z" /></svg>');
+  background-size: 20px 20px;
+  height: 20px;
+  width: 20px;
 }
 
-.HeaderTable {
-  width: 100%;
-  height: 35px;
-  margin: 20px 0px 50px;
-  display: flex;
-  justify-content: space-between;
+.col-history:before {
+  content: "";
+  visibility: visible;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="%23404040" d="M4,2A2,2 0 0,0 2,4V14H4V4H14V2H4M8,6A2,2 0 0,0 6,8V18H8V8H18V6H8M20,12V20H12V12H20M20,10H12A2,2 0 0,0 10,12V20A2,2 0 0,0 12,22H20A2,2 0 0,0 22,20V12A2,2 0 0,0 20,10M14,13V19L18,16L14,13Z"/></svg>');
+  background-size: 20px 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.col-itens:before {
+  content: "";
+  visibility: visible;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="%23404040" d="M4,2A2,2 0 0,0 2,4V14H4V4H14V2H4M8,6A2,2 0 0,0 6,8V18H8V8H18V6H8M20,12V20H12V12H20M20,10H12A2,2 0 0,0 10,12V20A2,2 0 0,0 12,22H20A2,2 0 0,0 22,20V12A2,2 0 0,0 20,10Z" /></svg>');
+  background-size: 20px 20px;
+  height: 20px;
+  width: 20px;
 }
 
 .prisma-filter {
